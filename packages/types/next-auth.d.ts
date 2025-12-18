@@ -24,6 +24,7 @@ declare module "next-auth" {
     completedOnboarding?: boolean;
     impersonatedBy?: {
       id: number;
+      uuid: string;
       role: PrismaUser["role"];
     };
     belongsToActiveTeam?: boolean;
@@ -57,6 +58,7 @@ declare module "next-auth/jwt" {
     role?: UserPermissionRole | "INACTIVE_ADMIN" | null;
     impersonatedBy?: {
       id: number;
+      uuid: string;
       role: PrismaUser["role"];
     };
     belongsToActiveTeam?: boolean;

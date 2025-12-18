@@ -34,6 +34,7 @@ export class PrismaBookingAuditRepository implements IBookingAuditRepository {
                 source: bookingAudit.source,
                 operationId: bookingAudit.operationId,
                 data: bookingAudit.data === null ? undefined : bookingAudit.data,
+                context: bookingAudit.context === undefined ? undefined : bookingAudit.context,
             },
         });
     }
@@ -49,6 +50,7 @@ export class PrismaBookingAuditRepository implements IBookingAuditRepository {
                 source: bookingAudit.source,
                 operationId: bookingAudit.operationId,
                 data: bookingAudit.data === null ? undefined : bookingAudit.data,
+                context: bookingAudit.context === undefined ? undefined : bookingAudit.context,
             })),
         });
         return { count: result.count };
