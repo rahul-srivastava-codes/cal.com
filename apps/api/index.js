@@ -11,8 +11,11 @@ const apiProxyV2 = createProxyMiddleware({
 });
 
 const app = connect();
+app.use("/v2", apiProxyV2); 
+// Order matters: "/v2" must be handled before "/".
+// This ensures v2 requests are correctly proxied and not captured by the root handler.
 app.use("/", apiProxyV1);
 
-app.use("/v2", apiProxyV2);
+
 
 http.createServer(app).listen(3002);
